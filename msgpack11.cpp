@@ -239,7 +239,7 @@ inline void dump(const std::string& value, std::ostream& os) {
     }
     else
     {
-        throw std::runtime_error("exceeded maximum data length");
+        //throw std::runtime_error("exceeded maximum data length");
     }
 
     std::for_each(std::begin(value), std::end(value), [&os](char v){
@@ -266,7 +266,7 @@ inline void dump(const MsgPack::array& value, std::ostream& os) {
     }
     else
     {
-        throw std::runtime_error("exceeded maximum data length");
+        //throw std::runtime_error("exceeded maximum data length");
     }
 
     std::for_each(std::begin(value), std::end(value), [&os](MsgPack::array::value_type const& v){
@@ -293,7 +293,7 @@ inline void dump(const MsgPack::object& value, std::ostream& os) {
     }
     else
     {
-        throw std::runtime_error("too long value.");
+        //throw std::runtime_error("too long value.");
     }
 
     std::for_each(std::begin(value), std::end(value), [&os](MsgPack::object::value_type const& v){
@@ -321,7 +321,7 @@ inline void dump(const MsgPack::binary& value, std::ostream& os) {
     }
     else
     {
-        throw std::runtime_error("exceeded maximum data length");
+        //throw std::runtime_error("exceeded maximum data length");
     }
     os.write(reinterpret_cast<const char*>(value.data()), value.size());
 }
@@ -359,7 +359,7 @@ inline void dump(const MsgPack::extension& value, std::ostream& os) {
         dump_data(static_cast<uint32_t>(len), os);
     }
     else {
-        throw std::runtime_error("exceeded maximum data length");
+        //throw std::runtime_error("exceeded maximum data length");
     }
 
     os.put(type);
